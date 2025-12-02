@@ -44,7 +44,14 @@
 </template>
 
 <script>
-export default {
+import { useRouter } from 'vue-router'
+import { ref } from 'vue'
+
+const router = useRouter()
+const usuario = ref("")
+const senha = ref("")
+
+export default {    
     name: "LoginPage",
     data() {
         return {
@@ -54,11 +61,14 @@ export default {
     },
     methods: {
         login() {
-            console.log("Email:", this.email);
-            console.log("Senha:", this.password);
-            alert("Login enviado!")
+            if (usuario.value === "aluno" && senha.value === "123") {
+                router.push("/dashboard")
+            } else {
+                alert("Senha ou email incorretos")
+            }
         }
     }
+
 }
 </script>
 
