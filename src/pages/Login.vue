@@ -3,7 +3,7 @@
         <!-- Lado esquerdo: Formulário -->
         <v-sheet class="left-pane pa-10 d-flex flex-column justify-center">
             <div>
-                <h1 class="title">Bem vindo!</h1>
+                <h1 class="title"> Welcome to AC</h1>
                 <v-form @submit.prevent="login" ref="form">
                     <v-text-field
                       v-model = "email"
@@ -38,19 +38,13 @@
         <!-- Lado direito - imagem -->
          <v-sheet class="right-pane">
             <div class="overlay"></div>
-            <img src="" alt="">
+            <p>study without limits</p>
          </v-sheet>
     </v-layout>
 </template>
 
 <script>
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
-
-const router = useRouter()
-const usuario = ref("")
-const senha = ref("")
-
 export default {    
     name: "LoginPage",
     data() {
@@ -61,8 +55,9 @@ export default {
     },
     methods: {
         login() {
-            if (usuario.value === "aluno" && senha.value === "123") {
-                router.push("/dashboard")
+            const router = useRouter()
+            if (this.email === "aluno" && this.password === "123") {
+                this.$router.push("/dashboard")
             } else {
                 alert("Senha ou email incorretos")
             }
@@ -89,6 +84,17 @@ export default {
     width: 65%;
     position: relative;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+.right-pane p {
+    position: relative;
+    z-index: 2;
+    margin: 0;
 }
 
 .login-image {
@@ -104,11 +110,12 @@ export default {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom right, 
-    rgba(0,0,0,0.4), rgba(0,0,0,0.15));
+    rgba(0,0,0,0.4), rgba(0,0,0,1));
     z-index: 1;
 }
 .title {
     font-size: 15;
     margin-bottom: 20px;
 }
+
 </style>
