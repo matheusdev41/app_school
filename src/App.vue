@@ -1,5 +1,21 @@
 <template>
-  <router-view />
+  <v-app>
+    <AppHeader v-if="!isLogin" />
+    <AppDrawer v-if="!isLogin" />
+
+    <v-main class="pa-6">
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<script setup lang="ts"></script>
+<script setup>
+import { useRoute } from "vue-router";
+import { computed } from "vue"
+import AppHeader from "./components/AppHeader.vue";
+import AppDrawer from "./components/AppDrawer.vue";
+
+const route = useRoute()
+
+const isLogin = computed(() => route.path === "/login")
+</script>
