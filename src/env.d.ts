@@ -1,4 +1,6 @@
 /// <reference types="vite/client" />
+declare module './plugins/vuetify';
+
 
 declare module '*.vue' {
   import { DefineComponent } from 'vue'
