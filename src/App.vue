@@ -1,8 +1,6 @@
 <template>
   <v-app>
     <AppHeader v-if="!isLogin" />
-    <AppDrawer v-if="!isLogin" />
-
     <v-main class="pa-6">
       <router-view />
     </v-main>
@@ -17,5 +15,5 @@ import AppDrawer from "./components/AppDrawer.vue";
 
 const route = useRoute()
 
-const isLogin = computed(() => route.path === "/login")
+const isLogin = computed(() => route.matched.some(r => r.meta && r.meta.noLayout))
 </script>

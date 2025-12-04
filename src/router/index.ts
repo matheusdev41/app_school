@@ -9,7 +9,7 @@ const routes = [
     meta: { noLayout: true}
   },
   {
-    path: '/',
+    path: '/dashboard',
     component: Dashboard,
   },
 ]
@@ -19,7 +19,4 @@ const router = createRouter({
   routes,
 })
 
-export default createRouter({
-  history: createWebHistory(),
-  routes
-})
+export default router;
