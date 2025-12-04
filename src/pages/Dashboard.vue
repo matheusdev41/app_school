@@ -155,6 +155,38 @@
       </v-row>
     </v-container>
 
+    <v-container class="mt-6">
+
+      <!-- Ranking da turma -->
+       <v-card class="mb-6" elevation="2">
+          <v-card-title class="text-h6">🏆Ranking da Turma </v-card-title>
+          <v-divider></v-divider>
+
+          <v-list>
+            <v-list-item
+              v-for="(aluno, index) in ranking"
+              :ket="aluno.id"
+            >
+              <v-avatar size="80">
+                  <v-img :src="aluno.avatar"></v-img>
+              </v-avatar>
+
+              <v-list-item-title>
+                {{  index +1  }}° - {{ aluno.nome }}
+              </v-list-item-title>
+
+              <v-list-item-subtitle>
+                {{  aluno.pontos }} pts
+              </v-list-item-subtitle>
+            </v-list-item>
+          </v-list>
+       </v-card>
+       <!-- Medalhas -->
+        <v-card class="mb-6" elevation="2">
+          <v-card-tile class="text-h6">🥇 Medalhas Conquistadas</v-card-tile>
+        </v-card>
+    </v-container>
+
     <v-container class="mt-10">
       
     </v-container>
@@ -164,6 +196,12 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+const ranking = ref([
+  {id: 1, nome: 'Fulano', pontos:450, avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Aluno1"},
+  {id: 2, nome: 'Cicrano', pontos:450, avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Aluno1"}
+])
 </script>
 
 <style scoped>
