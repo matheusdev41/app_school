@@ -170,14 +170,14 @@
               <v-row class="align-center" no-gutters>
 
                 <!-- Avatar -->
-                 <v-col cols="2" class="d-flex justify-center">
+                 <v-col cols="3" class="d-flex justify-center">
                     <v-avatar size="70">
                       <img :src="aluno.avatar"></img>
                     </v-avatar>
                  </v-col>
 
                  <!-- Nome + posição -->
-                 <v-col cols="6">
+                 <v-col cols="3">
                     <div class="text-subtitle-1 font-weight-bold">
                       {{  index + 1 }}º - {{ aluno.nome }}
                     </div>
@@ -186,8 +186,9 @@
                     </div>
                  </v-col>
 
+
                  <!-- Medalha + Nível -->
-                 <v-col cols="4" class="text-right pr-4">
+                 <v-col cols="3" class="text-right pr-4">
                     <div class="text-subtitle-2 font-wight-bold">
                      <v-icon size="26" class="mr-1" color="amber">mdi-medal</v-icon>
                      <span class="font-weight-medium">Medalhas: {{ aluno.medalhas }}</span>
