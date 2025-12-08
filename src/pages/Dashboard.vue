@@ -167,31 +167,42 @@
               v-for="(aluno, index) in ranking"
               :ket="aluno.id"
             >
-              <v-avatar size="80">
-                  <v-img :src="aluno.avatar"></v-img>
-              </v-avatar>
+              <v-row class="align-center" no-gutters>
 
-              <v-list-item-title>
-                {{  index +1  }}° - {{ aluno.nome }}
-              </v-list-item-title>
+                <!-- Avatar -->
+                 <v-col cols="2" class="d-flex justify-center">
+                    <v-avatar size="70">
+                      <img :src="aluno.avatar"></img>
+                    </v-avatar>
+                 </v-col>
 
-              <v-list-item-subtitle>
-                {{  aluno.pontos }} pts
-              </v-list-item-subtitle>
+                 <!-- Nome + posição -->
+                 <v-col cols="6">
+                    <div class="text-subtitle-1 font-weight-bold">
+                      {{  index + 1 }}º - {{ aluno.nome }}
+                    </div>
+                    <div class="text-body-2 grey--text">
+                        Pontos: {{  aluno.pontos }}
+                    </div>
+                 </v-col>
+
+                 <!-- Medalha + Nível -->
+                 <v-col cols="4" class="text-right pr-4">
+                    <div class="text-subtitle-2 font-wight-bold">
+                     <v-icon size="26" class="mr-1" color="amber">mdi-medal</v-icon>
+                     <span class="font-weight-medium">Medalhas: {{ aluno.medalhas }}</span>
+                    </div>
+
+                    <div class="d-flex align-center justify-end mt-1">
+                      <v-icon size="26" class="mr-1" color="yellow darken-3">mdi-star</v-icon>
+                      <span class="font-weight-medium">Nível: {{ aluno.nivel }}</span>
+                    </div>
+                  </v-col>
+                 </v-row>
             </v-list-item>
           </v-list>
        </v-card>
-       <!-- Medalhas -->
-        <v-card class="mb-6" elevation="2">
-          <v-card-tile class="text-h6">🥇 Medalhas Conquistadas</v-card-tile>
-        </v-card>
     </v-container>
-
-    <v-container class="mt-10">
-      
-    </v-container>
-
-   
   </div>
 </template>
 
