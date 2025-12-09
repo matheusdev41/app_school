@@ -61,7 +61,7 @@
             <v-card 
             class="dashboard-card"
             elevation="6"
-            @click="$router.push('/dashboard/notas')"
+            @click="$router.push('/notas')"
             >
                <v-card-title class="text-center">
                   <v-icon size="48">mdi-book-open-variant</v-icon>
@@ -77,7 +77,7 @@
              <v-card
               class="dashboard-card"
               elevation="6"
-              @click="$router.push('/dashboard/exercicios')"
+              @click="$router.push('/exercicios')"
              >
                 <v-card-title class="text-center">
                   <v-icon size="48">mdi-pencil</v-icon>
@@ -93,7 +93,7 @@
             <v-card
               class="dashboard-card"
               elevation="6"
-              @click="$router.push('/dashboard/trabalhos')"
+              @click="$router.push('/trabalhos')"
             >
               <v-card-title class="text-center">
                 <v-icon size="48">mdi-clipboard-text</v-icon>
@@ -212,7 +212,8 @@ import { ref } from 'vue'
 
 const ranking = ref([
   {id: 1, nome: 'Fulano', pontos:450, avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Aluno1"},
-  {id: 2, nome: 'Cicrano', pontos:450, avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Aluno1"}
+  {id: 2, nome: 'Cicrano', pontos:450, avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Aluno1"},
+  {id: 2, nome: 'Beltrano', pontos:450, avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Aluno1"}
 ])
 </script>
 

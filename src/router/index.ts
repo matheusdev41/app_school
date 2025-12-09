@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../pages/Login.vue'
 import Dashboard from '../pages/Dashboard.vue'
+import Notas from '../pages/Notas.vue'
+import { components } from 'vuetify/dist/vuetify.js'
 
 const routes = [
   { 
@@ -12,6 +14,10 @@ const routes = [
     path: '/dashboard',
     component: Dashboard,
   },
+  {
+    path: '/notas',
+    component: Notas,
+  }
 ]
 
 const router = createRouter({

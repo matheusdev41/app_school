@@ -20,7 +20,7 @@
             <v-spacer />
 
             <!-- Menu -->
-            <v-btn variant="text" class="mx-2 text-white" to="/inicio">Início</v-btn>
+            <v-btn variant="text" class="mx-2 text-white" to="/dashboard">Início</v-btn>
             <v-btn variant="text" class="mx-2 text-white" to="/alunos">Alunos</v-btn>
             <v-btn variant="text" class="mx-2 text-white" to="/turmas">Turmas</v-btn>
             <v-btn variant="text" class="mx-2 text-white" to="/relatorios">Relatórios</v-btn>
