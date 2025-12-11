@@ -17,7 +17,7 @@
                         <v-select
                             label="Disciplina"
                             :items="disciplinas"
-                            v-model="filtros.dificuldade"
+                            v-model="filtros.disciplina"
                         ></v-select>
                     </v-col>
 
@@ -47,7 +47,15 @@
                     md="6"
                     lg="4"
                     >
-                        <v-card class="pa-4"></v-card>
+                        <v-card class="pa-4" elevation="3">
+                            <div class="d-flex justify-space-between align-center mb-2">
+                                <h3 class="text-subtitle-1 font-weight-bold">{{ ex.titulo }}</h3>
+                                <v-chip :color="ex.concluido ? 'green' : 'orange'" size="small">
+                                </v-chip>
+                            </div>
+
+                            <p class="text-body-2">{{ ex.descricao }}</p>
+                        </v-card>
                     </v-col>
                </v-row>
 
@@ -60,14 +68,68 @@
 export default {
     data() {
       return {
-        disciplinas: ['Matemática', 'Português', 'Ciências', 'História'],
+        disciplinas: ['Todos','Matemática', 'Português', 'Ciências', 'História'],
 
         filtros: {
             disciplina: 'Todos',
             status: 'Todos',
             dificuldade: 'Todos',
-        }
-      }  
+        },
+        exercicios: [
+            {
+             id: 1,
+             titulo: "Sistema Solar",
+             descricao: "Explique as caracteristicas dos planetas gasosos",
+             disciplina: "Ciências",
+             dificuldade: "Médio",
+             concluido: true,
+            },
+            {
+             id: 2,
+             titulo: "Análise Sintática",
+             descricao: "Identifique o sujeito e o predicado nas frases.",
+             disciplina: "Português",
+             dificuldade: "Fácil",
+             concluido: false,
+            },
+            {
+             id: 2,
+             titulo: "Análise Sintática",
+             descricao: "Identifique o sujeito e o predicado nas frases.",
+             disciplina: "Português",
+             dificuldade: "Fácil",
+             concluido: false,
+            },
+            {
+             id: 2,
+             titulo: "Análise Sintática",
+             descricao: "Identifique o sujeito e o predicado nas frases.",
+             disciplina: "Português",
+             dificuldade: "Fácil",
+             concluido: false,
+            },
+         ],
+       };   
+    },
+    computed: {
+        listaFiltrada() {
+            return this.exercicios.filter(ex => {
+                const matchDisciplina = 
+                    this.filtros.disciplina === 'Todos' ||
+                    ex.disciplina === this.filtros.disciplina;
+                    
+                const matchStatus = 
+                    this.filtros.status === 'Todos' ||
+                    (this.filtros.status === 'Concluído' && ex.concluido) ||
+                    (this.filtros.status === 'Pendente' && !ex.concluido);
+
+                const matchDificuldade = 
+                    this.filtros.dificuldade === 'Todos' ||
+                    ex.dificuldade === this.filtros.dificuldade;
+
+                return matchDisciplina && matchStatus && matchDificuldade;
+            });
+        },
     },
     methods: {
         novoExercicio() {

@@ -3,6 +3,8 @@ import Login from '../pages/Login.vue'
 import Dashboard from '../pages/Dashboard.vue'
 import Notas from '../pages/Notas.vue'
 import Exercicios from '../pages/Exercicios.vue'
+import Trabalhos from '../pages/Trabalhos.vue'
+
 import { components } from 'vuetify/dist/vuetify.js'
 
 const routes = [
@@ -23,7 +25,10 @@ const routes = [
     path: '/exercicios',
     component: Exercicios,
   },
-  
+  {
+    path:'/trabalhos',
+    component: Trabalhos,
+  },
 ]
 
 const router = createRouter({
